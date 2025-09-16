@@ -3,16 +3,394 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
+  <title>raiihan Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    body { font-family: Arial, sans-serif; text-align: center; }
-    h1 { color: #007acc; }
-    a { color: #ff6600; text-decoration: none; }
+    :root {
+      --bg-color: #0d1117;
+      --text-color: #c9d1d9;
+      --primary-color: #58a6ff;
+      --highlight-color: #53ff84;
+      --secondary-color: #30363d;
+      --card-bg: #161b22;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+      background: linear-gradient(to right, #121212, #0d1117);
+    }
+
+    .hero-content {
+      display: flex;
+      align-items: center;
+      max-width: 1200px;
+      width: 100%;
+      flex-direction: row;
+      gap: 40px;
+    }
+
+    .text-content {
+      flex: 1;
+    }
+
+    .text-content h1 {
+      font-size: 3rem;
+      margin: 0;
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+
+    .text-content h2 {
+      font-size: 1.5rem;
+      margin-top: 5px;
+      font-weight: 400;
+      color: var(--highlight-color);
+    }
+
+    .text-content p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin: 20px 0;
+    }
+
+    /* Profile Links (HackerOne & Bugcrowd) */
+    .hero-buttons {
+      display: flex;
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .profile-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: var(--highlight-color);
+      background-color: var(--card-bg);
+      padding: 10px 15px;
+      border-radius: 8px;
+      border: 1px solid var(--secondary-color);
+      transition: all 0.3s ease;
+    }
+
+    .profile-link:hover {
+      background-color: var(--secondary-color);
+      transform: translateY(-3px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .profile-logo {
+      height: 24px;
+    }
+
+    .illustration-content {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .illustration {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(88, 166, 255, 0.4);
+    }
+
+
+	.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.skills-column h3 {
+  color: var(--highlight-color);
+  margin-bottom: 15px;
+}
+
+.skill {
+  margin-bottom: 15px;
+}
+
+.skill span {
+  font-size: 0.95rem;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.progress {
+  background: var(--secondary-color);
+  border-radius: 10px;
+  overflow: hidden;
+  height: 18px;
+}
+
+.progress div {
+  background: var(--highlight-color);
+  height: 100%;
+  line-height: 18px;
+  font-size: 0.8rem;
+  text-align: right;
+  padding-right: 5px;
+  font-weight: bold;
+  color: #000;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tags span {
+  background: var(--highlight-color);
+  color: #000;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+
+    /* Sections */
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    .section {
+      background-color: var(--card-bg);
+      border: 1px solid var(--secondary-color);
+      border-radius: 10px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .section h2 {
+      font-size: 1.8rem;
+      color: var(--primary-color);
+      border-bottom: 2px solid var(--secondary-color);
+      padding-bottom: 10px;
+      margin-top: 0;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    ul li::before {
+      content: "›";
+      position: absolute;
+      left: 0;
+      color: var(--primary-color);
+      font-weight: bold;
+    }
+
+    .social-links {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      margin: 0 10px;
+      font-size: 1.2rem;
+      color: var(--text-color);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .social-links a:hover {
+      color: var(--primary-color);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: var(--bg-color);
+      border-top: 1px solid var(--secondary-color);
+      font-size: 0.9rem;
+      color: var(--text-color);
+    }
+
+    @media (max-width: 768px) {
+      .hero-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      .illustration-content {
+        margin-top: 20px;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>Hi, I'm Raihan 👋</h1>
-  <p>Bug Bounty Hunter | Web Security Researcher</p>
+
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <div class="hero-content">
+      <div class="text-content">
+        <h1>Hi, I'm </br>Raihan Sharif</h1>
+        <h2>Bug hunter | Red teamer | Pentester</h2>
+        <p>I'm a cybersecurity professional with a strong focus on bug bounty hunting, penetration testing, and red teaming. I am passionate about discovering new vulnerabilities and staying ahead of emerging threats. My goal is to leverage my skills to build a more secure digital world and contribute to a resilient cybersecurity landscape.</p>
+        
+        <!-- Profile Links -->
+        <div class="hero-buttons">
+          <!-- HackerOne -->
+          <a href="https://hackerone.com/raiihan" target="_blank" class="profile-link">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/HackerOne_logo.svg" alt="HackerOne" class="profile-logo">
+            <span>raiihan</span>
+          </a>
+
+          <!-- Bugcrowd -->
+          <a href="https://bugcrowd.com/raiihan" target="_blank" class="profile-link">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Bugcrowd_logo.svg" alt="Bugcrowd" class="profile-logo">
+            <span>raiihan</span>
+          </a>
+        </div>
+      </div>
+      <div class="illustration-content">
+        <img src="https://i.ibb.co/L5T810d/Screenshot-2025-09-16-103142.png" alt="Keyboard Illustration" class="illustration">
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Container -->
+  <div class="container">
+	 <div class="section about">
+      <h2>About Me</h2>
+      <p>I am a cybersecurity enthusiast with expertise in web application security, penetration testing, and red team operations. Constantly learning and exploring new challenges.</p>
+    </div>
+      <!-- Skills Section -->
+<div class="section skills">
+  <h2>My Skills</h2>
+  <p><strong>My Skills Can Help You To Secure Your Assets</strong></p>
+  <p>
+    I have 1+ years of experience in web application security assessments and 
+    network security testing.
+  </p>
+
+  <div class="skills-grid">
+    <!-- Hacking Skills -->
+    <div class="skills-column">
+      <h3>Hacking Skills</h3>
+      <div class="skill">
+        <span>Website Security Testing</span>
+        <div class="progress"><div style="width:70%">70%</div></div>
+      </div>
+      <div class="skill">
+        <span>Web Application Security Testing</span>
+        <div class="progress"><div style="width:70%">70%</div></div>
+      </div>
+      <div class="skill">
+        <span>Mobile Application Security Testing</span>
+        <div class="progress"><div style="width:30%">30%</div></div>
+      </div>
+
+    </div>
+
+    <!-- Coding Skills -->
+    <div class="skills-column">
+      <h3>Coding Skills</h3>
+      <div class="skill">
+        <span>C</span>
+        <div class="progress"><div style="width:50%">50%</div></div>
+      </div>
+      <div class="skill">
+        <span>JavaScript</span>
+        <div class="progress"><div style="width:20%">20%</div></div>
+      </div>
+ 
+      <div class="skill">
+        <span>HTML/CSS</span>
+        <div class="progress"><div style="width:80%">80%</div></div>
+      </div>
+    </div>
+
+    <!-- Knowledge -->
+    <div class="skills-column">
+      <h3>Knowledges</h3>
+      <div class="tags">
+       
+        <span>OWASP Vulnerabilites </span>
+        <span>Burp Suite</span>
+        <span>OSINT</span>
+        <span>Cyber Security</span>
+        <span>Communication</span>
+        <span>Reconnaissance</span>
+        <span>Capture The Flag</span>
+        <span>Social Media</span>
+        <span>Social Engineering</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="section certifications">
+      <h2>Certifications</h2>
+      <ul>
+        <li>
+          Professional Bug Hunting & Advanced Web Application Security Testing <br>
+          <strong>Credential:</strong> BLG75CO0BZ  </br>
+          <a href="https://bytecapsuleit.com/verify-certificate" target="_blank" style="color: var(--primary-color); text-decoration: none; font-weight: 600;">
+            Verify Here
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="section experience">
+      <h2>Work Experience</h2>
+      <div class="experience-item">
+        <h3>Junior Red Team Analyst (Intern)</h3>
+        <p>Byte Capsule | Sep 2025 - Nov 2025</p>
+      </div>
+    </div>
+
+    <div class="social-links">
+      <a href="https://github.com/hunt3l3" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/raiihan-sharif/" target="_blank">LinkedIn</a>
+      <a href="mailto:raiihan.redteam@gmail.com">Email</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Raihan Sharif. All Rights Reserved.</p>
+  </footer>
 
 </body>
 </html>
